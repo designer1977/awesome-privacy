@@ -1,1 +1,227 @@
-[the full file content based on upstream main with the Vault Core entry inserted before `notableMentions:` in the Password Managers section]
+#################################################################################
+# Welcome to Awesome Privacy!                                                   #
+# This file contains all data for all listed categories, sections and services  #
+# It's used to generate both the README.md and the website, awesome-privacy.xyz #
+#                                                                               #
+# USAGE COMMANDS                                                                #
+# `make validate` - Check this file is valid YAML and fits the schema           #
+# `make generate` - Generate + insert content into the README.md                #
+#                                                                               #
+# EDITING                                                                       #
+# Please read the CONTRIBUTING.md before submitting any changes to this file    #
+#                                                                               #
+# ADDING SERVICE                                                                #
+# If you're adding a new listing, the following fields are accepted:            #
+#  - name: string (required) - The name of the service                          #
+#  - description: string (required) - A brief description of the service        #
+#  - url: string (required) - The URL of the service                            #
+#  - icon: string - The URL of the service's icon                               #
+#  - github: string - The GitHub repository of the service (user/repo-name)     #
+#  - codeberg: string - ...or (if not GH) the Codeberg repo (user/repo-name)    #
+#  - git: string - ...or the full URL to the repo for an external git host      #
+#  - iosApp: string - URL to the service's iOS app on the Apple App Store       #
+#  - androidApp: string - Package ID of Android app on Google Play Store        #
+#  - tosdrId: integer - The ID of the service on ToS;DR  (find at tosdr.org)    #
+#  - securityAudited: boolean - Has the service has been publicly audited       #
+#  - openSource: boolean - Whether the service is fully open source             #
+#  - acceptsCrypto: boolean - Whether the service accepts anonymous payment     #
+#  - discordInvite: string - The invite code for the service's Discord server   #
+#  - subreddit: string - The service's subreddit name (without the r/ prefix)   #
+#  - followWith: string - Some categories need a prefix (e.g. platform)         #
+#                                                                               #
+#################################################################################
+# Licensed under CC0-1.0 (C) Alicia Sykes <https://aliciasykes.com> 2019 - 2026 #
+#################################################################################
+
+categories:
+  - name: Essentials
+    sections:
+    ###############################
+    ###### Password Managers ######
+    ###############################
+    - name: Password Managers
+      alternativeTo: ['LastPass', '1Password', 'Dashlane', 'NordPass', 'RoboForm']
+      services:
+      - name: Bitwarden
+        url: https://bitwarden.com
+        followWith: Self-Hosted
+        github: bitwarden/server
+        tosdrId: 1348
+        androidApp: com.x8bit.bitwarden
+        iosApp: https://apps.apple.com/us/app/bitwarden-password-manager/id1137397744
+        subreddit: Bitwarden
+        description: |
+          Fully-featured, open source password manager with cloud-sync. Bitwarden is
+          easy-to-use with a clean UI and client apps for desktop, web and mobile. See
+          also [Vaultwarden](https://github.com/dani-garcia/vaultwarden), a self-hosted,
+          Rust implementation of the Bitwarden server and compatible with [upstream
+          Bitwarden clients](https://bitwarden.com/download/).
+
+      - name: KeePass
+        url: https://keepass.info
+        icon: https://keepass.info/images/icons/keepass_256x256.png
+        git: https://sourceforge.net/projects/keepass/
+        securityAudited: true
+        tosdrId: 3276
+        subreddit: KeePass
+        description: |
+          Hardened, secure and offline password manager. Does not have cloud-sync baked
+          in, deemed to be [gold standard](https://keepass.info/ratings.html) for secure
+          password managers. KeePass clients: [Strongbox](https://apps.apple.com/us/app/strongbox-keepass-pwsafe/id897283731)
+          *(Mac & iOS)*, [KeePassDX](https://play.google.com/store/apps/details?id=com.kunzisoft.keepass.free)
+          *(Android)*, [KeeWeb](https://keeweb.info) *(Web-based/ self-hosted)*,
+          [KeePassXC](https://keepassxc.org) *(Windows, Mac & Linux)*, see more KeePass
+          clients and extensions at [awesome-keepass](https://github.com/lgg/awesome-keepass)
+          by @lgg.
+
+      - name: LessPass
+        url: https://lesspass.com
+        followWith: Self-Hosted
+        github: lesspass/lesspass
+        description: |
+          LessPass is a little different, since it generates your passwords using a hash
+          of the website name, your username and a single main-passphrase that you reuse.
+          It omits the need for you to ever need to store or sync your passwords. They
+          have apps for all the common platforms and a CLI, but you can also self-host it.
+
+      - name: ProtonPass
+        url: https://proton.me/pass
+        github: protonpass/android-pass
+        openSource: true
+        tosdrId: 491
+        androidApp: proton.android.pass
+        iosApp: https://apps.apple.com/us/app/proton-pass-password-manager/id6443490629
+        subreddit: ProtonPass
+        description: |
+          From the creators of ProtonMail, ProtonPass is a new addition to their suite of
+          services. They have a full collection of user-friendly native mobile and desktop
+          apps. ProtonPass is one of the few "trustworthy" providers that also offers a
+          free plan.
+
+      - name: Pass
+        url: https://www.passwordstore.org/
+        git: https://git.zx2c4.com/password-store
+        icon: https://www.zx2c4.com/favicon.ico
+        description: The Standard Unix Password Manager
+        openSource: true
+
+      - name: AliasVault
+        url: https://www.aliasvault.net
+        icon: https://www.aliasvault.net/favicon.png
+        openSource: true
+        followWith: Self-Hosted
+        github: lanedirt/aliasvault
+        discordInvite: DsaXMTEtpF
+        description: |
+          End-to-end encrypted open source password and alias manager with built-in email server.
+          AliasVault protects your privacy by creating alternative identities, passwords
+          and email addresses for every website you use. Use the cloud version, or self-host and
+          deploy within minutes via Docker.
+
+      - name: PaperVault
+        url: https://papervault.xyz
+        icon: https://papervault.xyz/papervault-512.png
+        github: boazeb/papervault
+        openSource: true
+        description: |
+          Store secrets and passwords on encrypted paper with distributed keys.
+          Designed to last generations. Open source, client-side only, works offline.
+
+      - name: Vault Core
+        url: https://vaultcore.tools
+        icon: https://vaultcore.tools/favicon-192.png
+        github: designer1977/vault_core
+        openSource: true
+        description: |
+          Vault Core is an open-source, privacy-first password manager providing end-to-end encryption,
+          cross-device sync and straightforward self-hosting. It includes desktop, mobile and browser
+          clients, and aims for minimal telemetry and clear licensing (MIT).
+
+      notableMentions:
+      - name: Password Safe
+        url: https://www.pwsafe.org
+        # tosdrId: 3342
+        # iosApp: https://apps.apple.com/us/app/proton-pass-password-manager/id6443490629
+        # androidApp: com.jefftharris.passwdsafe
+        description: >
+          An offline, open source password manager designed by
+          [Bruce Schneier](https://www.schneier.com/academic/passsafe/), with native
+          applications for Windows, Linux, MacOS, Android and iOS, and support for
+          YubiKey. The UI is a little dated, and there is no official browser extension,
+          making is slightly less convenient to use compared with other options
+      - name: PassBolt
+        url: https://www.passbolt.com
+        # iosApp: https://apps.apple.com/us/app/passbolt-password-manager/id1569629432
+        # androidApp: com.passbolt.mobile.android
+        description: >
+          A good option for teams. It is free, open source, self-hosted, extensible
+          and OpenPGP based. It is specifically good for development and DevOps usage,
+          with integrations for the terminal, browser and chat, and can be easily
+          extended for custom usage, and deployed quickly with Docker
+      - name: 1Password
+        url: https://1password.com
+        # tosdrId: 1572
+        # iosApp: https://apps.apple.com/us/app/1password-password-manager/id1511601750
+        # androidApp: com.onepassword.android
+        description: >
+          (proprietary) A fully-featured cross-platform password manager with sync.
+          Free for self-hosted data (or $3/ month hosted). Be aware that 1Password
+          is not fully open source, but they do regularly publish results of their
+          independent [security audits](https://support.1password.com/security-assessments),
+          and they have a solid reputation for transparently disclosing and fixing vulnerabilities
+      furtherInfo: >
+        **Other Open Source PM**: [Buttercup](https://buttercup.pw), [Clipperz](https://clipperz.is),
+        [Pass](https://www.passwordstore.org), [Padloc](https://padloc.app), [TeamPass](https://teampass.net),
+        [PSONO](https://psono.com), [UPM](http://upm.sourceforge.net), [Gorilla](https://github.com/zdia/gorilla/wiki),
+        [Seahorse](https://gitlab.gnome.org/GNOME/seahorse) (for GNOME),
+        [GNOME Keyring](https://wiki.gnome.org/Projects/GnomeKeyring),
+        [KDE Wallet Manager](https://userbase.kde.org/KDE_WALLET_MANAGER).
+        <br /><br />
+        If you are using a deprecated PM, you should migrate to something actively maintained.
+        This includes: [Firefox Lockwise](https://www.mozilla.org/en-US/firefox/lockwise),
+        [Encryptr](https://spideroak.com/personal/encryptr?ref=awesome-privacyr),
+        [Mitro](https://www.mitro.co), [Rattic](https://spideroak.com/encryptr),
+        [JPasswords](http://jpws.sourceforge.net/jpasswords.html), [Passopolis](https://passopolis.com),
+        [KYPS](https://en.wikipedia.org/wiki/KYPS), [Factotum](http://man.9front.org/4/factotum).
+
+    #####################################
+    ###### 2-Factor Authentication ######
+    #####################################
+    - name: 2-Factor Authentication
+      alternativeTo: ['Google Authenticator', 'Authy', 'Microsoft Authenticator', 'LastPass Authenticator', 'Duo Mobile']
+      services:
+      - name: 2FAS
+        url: https://2fas.com/
+        followWith: Android & iOS
+        github: twofas/2fas-server
+        tosdrId: 8201
+        iosApp: https://apps.apple.com/us/app/2fa-authenticator-2fas/id1217793794
+        androidApp: com.twofasapp
+        discordInvite: q4cP6qh2g5
+        icon: https://avatars.githubusercontent.com/u/18189374
+        description: |
+          Free, secure and open source authenticator app for both iOS and Android.
+          Supports creating encrypted backups and syncing between devices without the need for an account.
+
+      - name: Aegis
+        url: https://getaegis.app
+        followWith: Android
+        github: beemdevelopment/Aegis
+        tosdrId: 4076
+        androidApp: com.beemdevelopment.aegis
+        icon: https://raw.githubusercontent.com/beemdevelopment/Aegis/master/metadata/en-US/images/icon.png
+        description: |
+          Free, secure and open source authenticator app for Android. Has a backup/
+          restore feature and a customisable UI with dark mode
+
+      - name: Stratum
+        url: https://stratumauth.com/
+        icon: https://stratumauth.com/img/icon.svg
+        followWith: Android
+        github: stratumauth/app
+        androidApp: com.stratumauth.app
+        description: |
+          Free and open-source two factor authentication app for Android. It features
+          encrypted backups, icons, categories and a high level of customisation. It
+          also has a Wear OS companion app
+
